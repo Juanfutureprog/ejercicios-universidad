@@ -911,72 +911,272 @@
 # for figura in figuras:
 #     figura.cal_area()
 
-class Producto:
-    def __init__(self, codigo, nombre, precio, stock):
-        self.codigo = codigo
-        self.nombre = nombre
-        self.precio = precio
-        self.stock = stock
+# class Producto:
+#     def __init__(self, codigo, nombre, precio, stock):
+#         self.codigo = codigo
+#         self.nombre = nombre
+#         self.precio = precio
+#         self.stock = stock
+#
+#     def __str__(self):
+#         return f'Codigo: {self.codigo}, Nombre: {self.nombre}, Precio: {self.precio}, Stock: {self.stock}'
+#
+# class Inventario:
+#     def __init__(self):
+#         self.productos = []
+#
+#     def agregar_producto(self, producto):
+#         self.productos.append(producto)
+#
+#     def eliminar_stock(self, nombre, cantidad):
+#         for producto in self.productos:
+#             if producto.nombre == nombre:
+#                 if producto.stock >= cantidad:
+#                     producto.stock -= cantidad
+#                     print(f'Stock del producto {nombre} actualizado, stock actual: {producto.stock}')
+#                 else:
+#                     print(f'No hay stock suficiente para reabastecer el producto {nombre}')
+#                 return
+#
+#         print(f'El producto {nombre} no se encuentra en el inventario')
+#
+#     def reabastecer_stock(self, nombre,cantidad):
+#         for producto in self.productos:
+#             if producto.nombre == nombre:
+#                 producto.stock += cantidad
+#                 print(f'Stock del producto {nombre} actualizado, stock actual: {producto.stock}')
+#                 return
+#         print(f'El producto {nombre} no se encuentra en el inventario')
+#
+#     def mostrar_productoos(self):
+#         for producto in self.productos:
+#             print(producto)
+#
+#     def calcular_total(self):
+#         total=0
+#         for producto in self.productos:
+#             total += producto.precio * producto.stock
+#         return f'El total de la compra es: {total}'
+#
+# producto1= Producto(123, 'Oreo', 1, 20)
+# producto2= Producto(145, 'Coca Cola', 1.25, 15)
+# producto3= Producto(165, 'Fideo', 0.45, 12)
+# producto4= Producto(185, 'Chocolate', 2.50, 0)
+# inventario= Inventario()
+# inventario.agregar_producto(producto1)
+# inventario.agregar_producto(producto2)
+# inventario.agregar_producto(producto3)
+# inventario.agregar_producto(producto4)
+# inventario.eliminar_stock('Oreo', 5)
+# inventario.eliminar_stock('Coca Cola', 6)
+# inventario.eliminar_stock('Fideo', 2)
+# inventario.eliminar_stock('Chocolate', 1)
+# inventario.reabastecer_stock('Oreo', 20)
+# inventario.mostrar_productoos()
+# print(inventario.calcular_total())
 
-    def __str__(self):
-        return f'Codigo: {self.codigo}, Nombre: {self.nombre}, Precio: {self.precio}, Stock: {self.stock}'
+# class Deportista:
+#     def __init__(self, nombre, edad, nacionaliad, altura,
+#                  peso, equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+#                  id_deportista):
+#         self.nombre = nombre
+#         self.edad = edad
+#         self.nacionaliad = nacionaliad
+#         self.altura = altura
+#         self.peso = peso
+#         self.equipo = equipo
+#         self.numero_camiseta = numero_camiseta
+#         self.anios_experiencia = anios_experiencia
+#         self.salario = salario
+#         self.lesionado = lesionado
+#         self.id_deportista = id_deportista
+#
+#     def presentarse(self):
+#         print(f'Soy {self.nombre}, tengo {self.edad} y juego para '
+#               f'{self.equipo} con el número {self.numero_camiseta}')
+#
+#     def actualizar_salario(self, aumento):
+#         self.salario += aumento
+#         print(f'{self.nombre} recibió un aumento de ${aumento:.2f}. '
+#               f'Salario actual: ${self.salario}')
+#
+#     def entrenar(self):
+#         print(f'{self.nombre} está realizando un entrenamiento general')
+#
+#
+# class Futbolista(Deportista):
+#     def __init__(self, nombre, edad, nacionaliad, altura,
+#                  peso, equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+#                  id_deportista, posicion, goles_anotados, asistencias,
+#                  tarjetas_amarillas, pie_habil):
+#         super().__init__(nombre, edad, nacionaliad, altura,
+#                          peso, equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+#                          id_deportista)
+#
+#         self.posicion = posicion
+#         self.goles_anotados = goles_anotados
+#         self.asistencias = asistencias
+#         self.tarjetas_amarillas = tarjetas_amarillas
+#         self.pie_habil = pie_habil
+#
+#     # 👇 Ahora sí están alineados con def __init__
+#     def anotar_gol(self):
+#         self.goles_anotados += 1
+#         print(f'¡Gooool de {self.nombre}! '
+#               f'Lleva {self.goles_anotados} goles anotados en el partido')
+#
+#     def hacer_falta(self):
+#         self.tarjetas_amarillas += 1
+#         print(f'{self.nombre} ha hecho una falta. '
+#               f'Recibió una tarjeta amarilla. '
+#               f'Total de tarjetas amarillas: {self.tarjetas_amarillas}')
+#
+#     def entrenar(self):
+#         super().entrenar()
+#         print(f'El jugador {self.nombre} entrena tiros a puerta y resistencia '
+#               f'para poder jugar como {self.posicion}')
+#
+#
+# class Basquetbolista(Deportista):
+#     def __init__(self, nombre, edad, nacionaliad, altura,
+#                  peso, equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+#                  id_deportista, puntos_anotados, rebotes, numero_triples,
+#                  mano_habil, numero_faltas):
+#         super().__init__(nombre, edad, nacionaliad, altura,
+#                          peso, equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+#                          id_deportista)
+#
+#         self.puntos_anotados = puntos_anotados
+#         self.rebotes = rebotes
+#         self.numero_triples = numero_triples
+#         self.mano_habil = mano_habil
+#         self.numero_faltas = numero_faltas
+#
+#     # 👇 También alineados con def __init__
+#     def anotar_puntos(self, puntos):
+#         self.puntos_anotados += puntos
+#         print(f'{self.nombre} anota {puntos} puntos. '
+#               f'Lleva {self.puntos_anotados} en el partido')
+#
+#     def capturar_rebotes(self):
+#         self.rebotes += 1
+#         print(f'{self.nombre} captura un rebote. '
+#               f'Total de rebotes: {self.rebotes}')
+#
+#     def entrenar(self):
+#         super().entrenar()
+#         print(f'El jugador {self.nombre} entrena lanzamiento de triples '
+#               f'y ejercicios de saltos')
+#
+#
+# futbolista1 = Futbolista('Mesi', 39, 'Argentina', 1.70, 67, 'Inter Miami',
+#                          10, 21, 500000, False, 'F001',
+#                          'Delantero', 0, 0, 0, 'Izquierdo')
+# futbolista1.anotar_gol()
+# futbolista1.hacer_falta()
+# futbolista1.entrenar()
+# futbolista1.actualizar_salario(25000)
 
-class Inventario:
-    def __init__(self):
-        self.productos = []
+class Deportista:
+    def __init__(self, nombre, edad, nacionalidad, altura, peso,
+                equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+                id_deportista):
+        self.nombre= nombre
+        self.edad= edad
+        self.nacionalidad= nacionalidad
+        self.altura= altura
+        self.peso= peso
+        self.equipo= equipo
+        self.numero_camiseta= numero_camiseta
+        self.anios_experiencia= anios_experiencia
+        self.salario= salario
+        self.lesionado= lesionado
+        self.id_deportista= id_deportista
 
-    def agregar_producto(self, producto):
-        self.productos.append(producto)
+    def presentarse(self):
+        print(f'Soy {self.nombre}, tengo {self.edad} años,'
+              f'juego para {self.equipo} con el número {self.numero_camiseta}')
 
-    def eliminar_stock(self, nombre, cantidad):
-        for producto in self.productos:
-            if producto.nombre == nombre:
-                if producto.stock >= cantidad:
-                    producto.stock -= cantidad
-                    print(f'Stock del producto {nombre} actualizado, stock actual: {producto.stock}')
-                else:
-                    print(f'No hay stock suficiente para reabastecer el producto {nombre}')
-                return
+    def actualizar_salario(self, aumento):
+        self.salario+= aumento
+        print(f'El jugador {self.nombre} ha recibido un aumento ${aumento:.2f}.'
+              f'Salario actual {self.salario:.2f}')
 
-        print(f'El producto {nombre} no se encuentra en el inventario')
-
-    def reabastecer_stock(self, nombre,cantidad):
-        for producto in self.productos:
-            if producto.nombre == nombre:
-                producto.stock += cantidad
-                print(f'Stock del producto {nombre} actualizado, stock actual: {producto.stock}')
-                return
-        print(f'El producto {nombre} no se encuentra en el inventario')
-
-    def mostrar_productoos(self):
-        for producto in self.productos:
-            print(producto)
-
-    def calcular_total(self):
-        total=0
-        for producto in self.productos:
-            total += producto.precio * producto.stock
-        return f'El total de la compra es: {total}'
-
-producto1= Producto(123, 'Oreo', 1, 20)
-producto2= Producto(145, 'Coca Cola', 1.25, 15)
-producto3= Producto(165, 'Fideo', 0.45, 12)
-producto4= Producto(185, 'Chocolate', 2.50, 0)
-inventario= Inventario()
-inventario.agregar_producto(producto1)
-inventario.agregar_producto(producto2)
-inventario.agregar_producto(producto3)
-inventario.agregar_producto(producto4)
-inventario.eliminar_stock('Oreo', 5)
-inventario.eliminar_stock('Coca Cola', 6)
-inventario.eliminar_stock('Fideo', 2)
-inventario.eliminar_stock('Chocolate', 1)
-inventario.reabastecer_stock('Oreo', 20)
-inventario.mostrar_productoos()
-print(inventario.calcular_total())
+    def entrenar(self):
+        print(f'El deportista {self.nombre} esta haciendo un entrenamiento general ')
 
 
+class Futbolista(Deportista):
+    def __init__(self, nombre, edad, nacionalidad, altura, peso,
+                equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+                id_deportista, posicion,goles_anotados, asistencias, tarjetas_amarilas,
+                pie_habil):
+        super().__init__(nombre, edad, nacionalidad, altura, peso,
+                equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+                id_deportista)
+        self.posicion= posicion
+        self.goles_anotados= goles_anotados
+        self.asistencias= asistencias
+        self.tarjetas_amarillas= tarjetas_amarilas
+        self.pie_habil= pie_habil
 
+    def anotar_gol(self):
+        self.goles_anotados+= 1
+        print(f'Goooool de {self.nombre}.'
+              f'Lleva {self.goles_anotados} goles anotados en el partido.')
+
+    def hacer_falta(self):
+        self.tarjetas_amarillas+= 1
+        print(f'El jugador a hecho una falta, recibe tarjeta amarilla.'
+              f'Regista {self.tarjetas_amarillas} tarjetas amarillas en el partido')
+
+    def entrenar(self):
+        super().entrenar()
+        print(f'El jugador {self.nombre} esta realizando tiros a puerta y'
+              f' ejercicios de velocidad')
+
+class Basquetbolista(Deportista):
+    def __init__(self, nombre, edad, nacionalidad, altura, peso,
+                 equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+                 id_deportista, puntos_anotados, rebotes, numero_triples,
+                 numero_faltas, mano_habil):
+        super().__init__(nombre, edad, nacionalidad, altura, peso,
+                         equipo, numero_camiseta, anios_experiencia, salario, lesionado,
+                         id_deportista)
+        self.puntos_anotados= puntos_anotados
+        self.rebotes= rebotes
+        self.numero_triples = numero_triples
+        self.numero_faltas= numero_faltas
+        self.mano_habil= mano_habil
+
+    def anotar_puntos(self, puntos):
+        self.puntos_anotados+= puntos
+        print(f'El jugador {self.nombre} ha hecho {puntos} puntos.'
+              f'Lleva un total de {self.puntos_anotados} en el partido')
+
+    def capturar_rebotes(self):
+        self.rebotes+= 1
+        print(f'{self.nombre} captura un rebote.'
+              f'Total de rebotes en el partido: {self.rebotes}')
+
+    def entrenar(self):
+        super().entrenar()
+        print(f'El jugador se encuentra realizando ejercicios de saltos y '
+              f'lanzamientos de triples')
+
+fut1= Futbolista('Messi',39, 'Argentina', 1.70, 67, 'Inter Miami',
+                 10, 21, 500000, False, 'F001',
+                 'Delantero', 0,0,0,'Izquierdo')
+fut1.anotar_gol()
+fut1.hacer_falta()
+fut1.entrenar()
+print('=='*80)
+bast= Basquetbolista('Michael Jordan',40, 'Estadounidense', 1.98, 98, 'Chicago Bulls',
+                 23, 15, 200000, False, 'B001',
+                 0, 0,0,0,'Derecha')
+bast.anotar_puntos(9)
+bast.capturar_rebotes()
+bast.entrenar()
 
 
 
